@@ -28,7 +28,7 @@ export default class extends React.PureComponent {
 
     handleCopy = () => {
         const container = document.createElement('textarea');
-        const { clickCallback, src, namespace } = this.props;
+        const { clickCallback, src, namespace, variable } = this.props;
 
         container.innerHTML = JSON.stringify(
             this.clipboardValue(src),
@@ -52,11 +52,10 @@ export default class extends React.PureComponent {
             if (typeof clickCallback !== 'function') {
                 return;
             }
-
             clickCallback({
                 src: src,
                 namespace: namespace,
-                name: namespace[namespace.length - 1]
+                name: variable.name
             });
         });
     }
