@@ -55,7 +55,7 @@ export default class extends React.PureComponent {
             clickCallback({
                 src: src,
                 namespace: namespace,
-                name: variable.name
+                name: variable ? variable.name : ''
             });
         });
     }
